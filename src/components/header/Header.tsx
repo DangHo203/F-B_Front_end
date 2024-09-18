@@ -3,7 +3,7 @@ import TopBar from "./TopBar";
 
 export default function Header() {
     return (
-        <div className="w-full">
+        <div className="w-full shadow-lg">
             <TopBar
                 openingHours="Mon - Fri: 9am - 5pm"
                 phoneNumber="123-456-7890"

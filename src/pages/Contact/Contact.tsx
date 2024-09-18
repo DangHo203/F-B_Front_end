@@ -12,7 +12,10 @@ const Contact: React.FC = () => {
         <main className="flex flex-col items-center">
             <Header />
             <HeroSection />
-            <ContactSection />
+            <div className="flex flex-col items-center lg:px-0 px-[30px]">
+                <ContactSection />
+            </div>
+
             <Footer />
         </main>
     );

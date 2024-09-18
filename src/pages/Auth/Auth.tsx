@@ -12,7 +12,9 @@ const Auth: React.FC = () => {
         <main className="flex flex-col items-center">
             <Header />
             <HeroSection />
-            <LoginRegister />
+            <div className="flex flex-col items-center sm:!px-0 !px-[30px]">
+                <LoginRegister />
+            </div>
 
             <Footer />
         </main>

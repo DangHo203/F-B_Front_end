@@ -10,10 +10,13 @@ const Menu: React.FC = () => {
     return (
         <main className="flex flex-col items-center">
             <Header />
-            <HeroSection />
-            <SearchBar />
-            <FoodMenu />
-            <FoodMenuSpecial />
+            <div className="flex flex-col items-center lg:px-0 px-[30px]">
+                <HeroSection />
+                <SearchBar />
+                <FoodMenu />
+                <FoodMenuSpecial />
+            </div>
+
             <Footer />
         </main>
     );

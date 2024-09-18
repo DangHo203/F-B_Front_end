@@ -15,27 +15,30 @@ export default function Main() {
     return (
         <div className="w-screen h-auto flex flex-col justify-center items-center bg-main overflow-x-hidden gap-[50px]">
             <Header />
-            <div className="h-"></div>
-            <HeroSection
-                title="ENJOY OUR CHICKEN BURGER FAST FOOD"
-                subtitle="Best In Town"
-                price="99$"
-            />
-           
-            <PopularDishes />
-            <RichAndHealthy />
-            <BigOffer />
-            <Menu />
-            <SpecialsMenu />
-            <RestaurantPage />  
-            <DeliverySection
-                title="A Moments Of"
-                phoneNumber="+880 1630 225 015"
-                subtitle="Delivered On Right Time & Place"
-                description="Food Khan is a restaurant, bar and coffee roastery located on a busy corner site in Farringdon's Exmouth Market. With glazed frontage on two sides of the building, overlooking the market and a bustling London inteon."
-            />
-            <WhyWeAreBest />
-            <Testimonial />
+
+            <div className="w-screen h-auto flex flex-col justify-center items-center bg-main overflow-x-hidden gap-[50px] lg:px-0 px-[30px]">
+                <HeroSection
+                    title="ENJOY OUR CHICKEN BURGER FAST FOOD"
+                    subtitle="Best In Town"
+                    price="99$"
+                />
+
+                <PopularDishes />
+                <RichAndHealthy />
+                <BigOffer />
+                <Menu />
+                <SpecialsMenu />
+                <RestaurantPage />
+                <DeliverySection
+                    title="A Moments Of"
+                    phoneNumber="+880 1630 225 015"
+                    subtitle="Delivered On Right Time & Place"
+                    description="Food Khan is a restaurant, bar and coffee roastery located on a busy corner site in Farringdon's Exmouth Market. With glazed frontage on two sides of the building, overlooking the market and a bustling London inteon."
+                />
+                <WhyWeAreBest />
+                <Testimonial />
+            </div>
+
             <Footer />
         </div>
     );

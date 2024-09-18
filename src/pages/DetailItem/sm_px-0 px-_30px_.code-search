@@ -1,0 +1,22 @@
+# Query: sm:px-0 px-[30px]
+# Flags: WordMatch
+
+6 results - 6 files
+
+FvB\src\pages\About\AboutUs.tsx:
+  32:             <div className="w-screen h-auto flex flex-col justify-center items-center bg-main overflow-x-hidden gap-[50px] lg:px-0 px-[30px]">
+
+FvB\src\pages\Contact\Contact.tsx:
+  15:             <div className="flex flex-col items-center lg:px-0 px-[30px]">
+
+FvB\src\pages\DetailItem\Detail.tsx:
+  23:             <div className="w-screen h-auto flex flex-col justify-center items-center bg-main overflow-x-hidden gap-[50px] lg:px-0 px-[30px]">
+
+FvB\src\pages\Main\Main.tsx:
+  19:             <div className="w-screen h-auto flex flex-col justify-center items-center bg-main overflow-x-hidden gap-[50px] lg:px-0 px-[30px]">
+
+FvB\src\pages\Menu\Menu.tsx:
+  13:             <div className="flex flex-col items-center lg:px-0 px-[30px]">
+
+FvB\src\pages\WishList\WistList.tsx:
+  42:             <div className="flex flex-col items-center lg:px-0 px-[30px]">

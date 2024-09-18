@@ -10,7 +10,7 @@ import FoodMenuSpecial from "./Components/FoodMenuSpecial/FoodMenuSpecial";
 import FoodMenu from "./Components/FoodMenuNormal/FoodMenu";
 
 const items = {
-    detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+    detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiulgod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
     imageSrc:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/443c9c548f4f60485edd7843abad7713979d075b25e755b5f71d41c1ba3594b3?placeholderIfAbsent=true&apiKey=e0522cabc",
 };
@@ -20,10 +20,13 @@ const Detail: React.FC = () => {
         <main className="flex flex-col items-center">
             <Header />
             <HeroSection />
-            <ItemDetail detail={items.detail} imageSrc={items.imageSrc} />
-            <span>See more items</span>
-            <FoodMenu />
-            <FoodMenuSpecial />
+            <div className="w-screen h-auto flex flex-col justify-center items-center bg-main overflow-x-hidden gap-[50px] lg:px-0 px-[30px]">
+                <ItemDetail detail={items.detail} imageSrc={items.imageSrc} />
+                <span>See more items</span>
+                <FoodMenu />
+                <FoodMenuSpecial />
+            </div>
+
             <Footer />
         </main>
     );

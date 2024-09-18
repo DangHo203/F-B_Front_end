@@ -29,11 +29,14 @@ const AboutUs: React.FC = () => {
         <main className="flex flex-col items-center">
             <Header />
             <HeroSection />
-            <StorySection />
-            <OurStorySection />
-            <ChefSection />
-            <SpecialServices services={services} />
-            <TeamSection />
+            <div className="w-screen h-auto flex flex-col justify-center items-center bg-main overflow-x-hidden gap-[50px] lg:px-0 px-[30px]">
+                <StorySection />
+                <OurStorySection />
+                <ChefSection />
+                <SpecialServices services={services} />
+                <TeamSection />
+            </div>
+
             <Footer />
         </main>
     );

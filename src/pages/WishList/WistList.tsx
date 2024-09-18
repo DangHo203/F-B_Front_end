@@ -31,7 +31,7 @@ const products: Product[] = [
         quantity: 1,
         total: 150,
         image: "https://cdn.builder.io/api/v1/image/assets/TEMP/d29f8242e80dd8bde5d3affb925155a13287e74744d187688bd2e62000489140?placeholderIfAbsent=true&apiKey=e0522cabc7bc4885906fcb2658eca109",
-    }
+    },
 ];
 
 const WistList: React.FC = () => {
@@ -39,7 +39,9 @@ const WistList: React.FC = () => {
         <main className="flex flex-col items-center">
             <Header />
             <HeroSection />
-            <ProductList products={products} />
+            <div className="flex flex-col items-center lg:px-0 px-[30px]">
+                <ProductList products={products} />
+            </div>
 
             <Footer />
         </main>
