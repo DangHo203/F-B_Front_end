@@ -1,14 +1,43 @@
+import React, { useEffect, useRef, useState } from "react";
 import Navigation from "./Navigation";
 import TopBar from "./TopBar";
+interface HeaderProps {
+    setIsOpenNavMenu: (value: boolean) => void;
+}
+const Header: React.FC<HeaderProps> = ({ setIsOpenNavMenu }) => {
+    const headerRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(true);
 
-export default function Header() {
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            setIsVisible(false);
+        } else {
+            setIsVisible(true);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
-        <div className="w-full shadow-lg">
+        <div
+            ref={headerRef}
+            className={`w-full shadow-lg fixed top-0 h-[130px] z-40 transition-transform duration-300 ${
+                isVisible ? "translate-y-0" : "-translate-y-full"
+            }`}
+        >
             <TopBar
                 openingHours="Mon - Fri: 9am - 5pm"
                 phoneNumber="123-456-7890"
             />
-            <Navigation logoSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/cd01741af0d7d10fe52dd79bad621aeca9a5afa12a2e6b50ebd1b2d28e2c40d5?apiKey=e34b0bbc442149bfa463a424862e236a&" />
+            <Navigation setIsOpenNavMenu={setIsOpenNavMenu}/>
         </div>
     );
-}
+};
+
+export default Header;

@@ -37,7 +37,7 @@ const PopularDishes: React.FC = () => {
             <h2 className="self-center text-4xl font-bold text-red-600">
                 Popular Dishes
             </h2>
-            <div className="flex sm:!flex-row !flex-col gap-5 mt-5">
+            <div className="flex max-md:flex-col flex-row gap-5 mt-5 overflow-x-auto scrollbar-hidden">
                 {dishes.map((dish, index) => (
                     <img
                         key={index}

@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { IoLogOutOutline } from "react-icons/io5";
 
 import Badge from "@mui/material/Badge";
 import { useNavigate } from "react-router-dom";
 import NavMenu from "./NavMenu";
-type NavigationProps = {
-    logoSrc: string;
-};
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/slice/user.slice";
+interface NavigationProps {
+    setIsOpenNavMenu: (value: boolean) => void;
+}
 
 const links = [
     {
@@ -29,24 +32,25 @@ const links = [
     },
 ];
 
-const Navigation: React.FC<NavigationProps> = ({ logoSrc }) => {
+const Navigation: React.FC<NavigationProps> = ({ setIsOpenNavMenu }) => {
+    const dispatch = useDispatch();
+
+    const { items } = useSelector((state: any) => state.cartSlice);
+    const { isLogin, fullName, image } = useSelector(
+        (state: any) => state.customerSlice
+    );
     const navigate = useNavigate();
-    const [isOpenMenu, setIsOpenMenu] = React.useState(false);
-    const handleOpenMenu = () => {
-        console.log("isOpenMenusadsad", isOpenMenu);
-        setIsOpenMenu(!isOpenMenu);
+    const handleLogout = () => {
+        dispatch(logout());
     };
-    useEffect(() => {
-        console.log("isOpenMenu", isOpenMenu);
-    }, [isOpenMenu]);
+
     return (
         <>
-            {isOpenMenu && <NavMenu handleOpenMenu={handleOpenMenu}/>}
-            <nav className="mt-[30px] flex flex-col justify-center items-center self-stretch px-16 py-6 w-full text-xl font-bold bg-orange-50 shadow-sm text-slate-700 max-md:px-5 max-md:max-w-full">
-                <div className="flex flex-row gap-10 justify-evenly items-center md:justify-between ml-3 w-full rounded-none max-w-[1198px] max-md:max-w-full">
+            <nav className="mt-[30px] flex flex-col justify-center items-center self-stretch px-16 py-6 w-full h-[100px] text-xl font-bold bg-orange-50 shadow-sm text-slate-700 max-md:px-5 max-md:max-w-full">
+                <div className="flex flex-row gap-10 justify-evenly items-center md:justify-between w-full rounded-none max-w-[1198px] max-md:max-w-full">
                     <div className="sm:!hidden flex justify-center items-start ">
                         <RxHamburgerMenu
-                            onClick={handleOpenMenu}
+                            onClick={() => setIsOpenNavMenu(true)}
                             className="text-[30px] cursor-pointer transform transition-transform duration-300 hover:scale-125"
                         />
                     </div>
@@ -69,7 +73,7 @@ const Navigation: React.FC<NavigationProps> = ({ logoSrc }) => {
                             ))}
                         </div>
                         <Badge
-                            badgeContent={4}
+                            badgeContent={items?.length || 0}
                             color="primary"
                             className="flex justify-center items-start"
                         >
@@ -95,12 +99,38 @@ const Navigation: React.FC<NavigationProps> = ({ logoSrc }) => {
                                 alt=""
                             />
                         </div>
-                        <button
-                            onClick={() => navigate("/auth")}
-                            className=" sm:flex hidden self-stretch px-5 py-2 my-auto text-lg text-orange-50 whitespace-nowrap bg-red-600 rounded-xl shadow-sm"
-                        >
-                            LOGIN
-                        </button>
+                        {!isLogin && (
+                            <button
+                                onClick={() => navigate("/auth")}
+                                className=" sm:flex hidden self-stretch px-5 py-2 my-auto text-lg text-orange-50 whitespace-nowrap bg-red-600 rounded-xl shadow-sm"
+                            >
+                                LOGIN
+                            </button>
+                        )}
+                        {isLogin && (
+                            <div className="sm:flex hidden gap-2.5 self-stretch my-auto text-[18px]">
+                                <div className="flex flex-col justify-center items-center">
+                                    <div
+                                        onClick={() => {
+                                            navigate(`/profile`);
+                                        }}
+                                        className="w-[40px] h-[40px]  flex justify-center items-center"
+                                    >
+                                        <img
+                                            src={image}
+                                            className="w-full h-full object-cover rounded-[100px]"
+                                            alt=""
+                                        />
+                                    </div>
+                                </div>
+                                <div className="self-stretch px-5 py-2 my-auto text-lg text-red-500 whitespace-nowrap rounded-xl shadow-sm">
+                                    <IoLogOutOutline
+                                        onClick={handleLogout}
+                                        className="text-[30px]"
+                                    />
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </nav>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 type TopBarProps = {
   openingHours: string;
@@ -6,9 +7,12 @@ type TopBarProps = {
 };
 
 const TopBar: React.FC<TopBarProps> = ({ openingHours, phoneNumber }) => {
+  const { isLogin, fullName } = useSelector(
+    (state: any) => state.customerSlice
+);
   return (
-    <header className="fixed z-50 top-0 h-[30px] flex flex-col justify-center items-center self-stretch px-16 py-2 w-full text-xs text-orange-50 bg-red-600 max-md:px-5 max-md:max-w-full">
-      <div className="flex flex-wrap gap-5 justify-between w-full max-w-[1213px] max-md:max-w-full">
+    <header className="fixed z-50 top-0 h-[30px] flex flex-row justify-center items-center self-stretch px-16 py-2 w-full text-xs text-orange-50 bg-red-600 max-md:px-5 max-md:max-w-full">
+      <div className="flex flex-row gap-5 justify-between items-center w-full max-w-[1213px] max-md:max-w-full text-[1vh]">
         <div className="flex gap-10">
           <div className="flex gap-4">
             <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f27aeb73562d377596ac0648a7c774a9fe13d068e204a1e1bd12de498dc0ac9?placeholderIfAbsent=true&apiKey=e0522cabc7bc4885906fcb2658eca109" className="object-contain shrink-0 w-5 aspect-square" alt="" />
@@ -19,7 +23,19 @@ const TopBar: React.FC<TopBarProps> = ({ openingHours, phoneNumber }) => {
             <div className="my-auto basis-auto">{phoneNumber}</div>
           </div>
         </div>
-        <div className="my-auto">REGISTER</div>
+        {
+          isLogin && (
+              <span className='text-[12px]'>Welcome {fullName}!</span>
+          )
+        }
+        {
+          !isLogin && (
+              <button onClick={()=>{
+                window.location.href = '/auth';
+              }} className='text-[12px]'>REGISTER</button>
+          )
+        }
+
       </div>
     </header>
   );

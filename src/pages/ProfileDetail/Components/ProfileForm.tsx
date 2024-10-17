@@ -4,50 +4,28 @@
 import React from "react";
 import FormSection from "./FormSection";
 import FormInput from "./FormInput";
+import { ICustomer } from "../../../types/ICustomer";
 
-const ProfileForm: React.FC = () => {
-  return (
-    <form className="flex flex-col ml-5 w-[70%] max-md:ml-0 max-md:w-full">
-      <div className="flex flex-col w-full max-md:mt-10 max-md:max-w-full">
-        <FormSection title="BASIC INFORMATION">
-          <FormInput label="User Full Name*" value="David Matin" />
-          <div className="flex flex-wrap gap-10 mt-3.5 max-md:max-w-full">
-            <FormInput label="Professional title*" value="Web developer" />
-            <FormInput label="Age*" value="38" />
-          </div>
-          <FormInput
-            label="About"
-            value="Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:
+interface ProfileFormProps {
+    customer: ICustomer;
+}
 
-'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'"
-            multiline
-          />
-        </FormSection>
+const ProfileForm: React.FC<ProfileFormProps> = ({ customer }) => {
+    return (
+        <div className="flex flex-col sm:w-[60%] max-sm:w-full max-md:mt-10">
+            <FormSection title="BASIC INFORMATION">
+                <FormInput label="Full Name*" value={customer.fullName} />
+                <FormInput label="Email Address" value={customer.email} />
+                <FormInput label="Age*" value={String(customer.age) || "18"} />
+                <FormInput label="Contact Number" value={customer.phone} />
 
-        <FormSection title="CONTACT INFORMATION">
-          <div className="flex flex-wrap gap-10 mt-6 max-md:max-w-full">
-            <FormInput label="Contact Number" value="+880 1630 2250 15" />
-            <FormInput label="Email Address" value="shaheen.au2@gmail.com" />
-          </div>
-          <div className="flex flex-wrap gap-10 mt-6 max-md:max-w-full">
-            <FormInput label="Country" value="Country name" />
-            <FormInput label="Postcode" value="112233" />
-          </div>
-          <div className="flex flex-wrap gap-10 mt-6 max-md:max-w-full">
-            <FormInput label="City" value="City Name" />
-            <FormInput label="Full Address" value="Dhaka, Bnagladesh" />
-          </div>
-        </FormSection>
-
-        <button
-          type="submit"
-          className="bg-red-500 self-center px-8 py-4 mt-5 max-w-full text-2xl text-white rounded-xl w-auto max-md:px-5 max-md:mt-10"
-        >
-          Save Setting
-        </button>
-      </div>
-    </form>
-  );
+                <FormInput label="Full Address" value="Dhaka, Bnagladesh" />
+            </FormSection>
+            <div className="bg-red-500 self-center px-8 py-4 mt-5 max-w-full text-2xl text-white rounded-xl w-auto max-md:px-5 max-md:mt-10">
+                Save Setting
+            </div>
+        </div>
+    );
 };
 
 export default ProfileForm;

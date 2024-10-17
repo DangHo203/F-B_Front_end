@@ -34,7 +34,7 @@ const branchData: BranchInfo[] = [
 
 const Footer: React.FC = () => {
     return (
-        <main className="flex flex-col w-full mt-[30px]">
+        <main className="flex flex-col w-full  mt-[30px]">
             <h1 className="self-center text-4xl font-bold text-slate-700">
                 Our Branch
             </h1>

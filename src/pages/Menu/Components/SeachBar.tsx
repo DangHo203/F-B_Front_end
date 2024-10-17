@@ -1,17 +1,39 @@
+import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+
 export default function SearchBar() {
+    const [params] = useSearchParams();
+    const [search, setSearch] = useState("");
+    const navigate = useNavigate();
+
+    const handleSearch = () => {
+        if (search === "") {
+            params.delete("search");
+            return navigate(`/menu?${params.toString()}`);
+        }
+        params.set("search", search);
+        navigate(`/menu?${params.toString()}`);
+    };
+
     return (
         <div className="flex flex-col justify-center items-center w-full h-20 bg-white shadow-md gap-2 py-[100px]">
-            <span className="text-[30px] font-bold">
+            <span className="text-[3vw] font-bold">
                 It’s the food and groceries you Love, delivered
             </span>
 
-            <div className="flex flex-row items-center w-1/2 gap-2" >
+            <div className="flex flex-row items-center w-2/3 gap-2">
                 <input
+                    onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
                     type="text"
                     placeholder="Search for food"
-                    className="w-full h-10 px-4 text-lg text-gray-600 bg-gray-100 rounded-full focus:outline-none"
+                    className="w-full h-[50px] px-4 text-lg text-gray-600 bg-gray-100 rounded-full focus:outline-none"
                 />
-                <button className="w-1/4 h-10 bg-red-500 rounded-full text-white font-bold">
+                <button
+                    onClick={handleSearch}
+                    className="w-[50vw] h-[50px] bg-red-500 rounded-full text-white font-bold"
+                >
                     Search
                 </button>
             </div>

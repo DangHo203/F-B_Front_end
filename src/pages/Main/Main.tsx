@@ -1,5 +1,3 @@
-import Footer from "../../components/footer/Footer";
-import Header from "../../components/header/Header";
 import HeroSection from "../../components/hero/Herosection";
 import BigOffer from "./components/BigOffer/BigOffer";
 import DeliverySection from "./components/Delivery/DeliverySection";
@@ -13,10 +11,8 @@ import WhyWeAreBest from "./components/WeTheBest/WhyWeAreBest";
 
 export default function Main() {
     return (
-        <div className="w-screen h-auto flex flex-col justify-center items-center bg-main overflow-x-hidden gap-[50px]">
-            <Header />
-
-            <div className="w-screen h-auto flex flex-col justify-center items-center bg-main overflow-x-hidden gap-[50px] lg:px-0 px-[30px]">
+        <div className="w-screen h-auto flex flex-col justify-center items-center bg-main overflow-x-hidden">
+            <div className="w-screen h-auto flex flex-col justify-center items-center bg-main overflow-x-hidden lg:px-0 px-[30px] gap-[50px]">
                 <HeroSection
                     title="ENJOY OUR CHICKEN BURGER FAST FOOD"
                     subtitle="Best In Town"
@@ -38,8 +34,6 @@ export default function Main() {
                 <WhyWeAreBest />
                 <Testimonial />
             </div>
-
-            <Footer />
         </div>
     );
 }

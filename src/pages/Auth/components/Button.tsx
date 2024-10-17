@@ -4,12 +4,13 @@
 import React from "react";
 
 interface ButtonProps {
+  onClick?: () => void; 
   children: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ children }) => {
+const Button: React.FC<ButtonProps> = ({onClick, children  }) => {
   return (
-    <button className="px-7 py-4 mt-4 text-white bg-red-600 rounded-xl max-md:px-5">
+    <button onClick={onClick} className="px-7 py-4 mt-4 text-white bg-red-600 rounded-xl max-md:px-5">
       {children}
     </button>
   );
