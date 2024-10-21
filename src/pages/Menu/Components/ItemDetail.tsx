@@ -37,7 +37,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({
             addItem({
                 id,
                 title,
-                price,
+                price: Number(price),
                 quantity: 1,
                 total: Number(price),
                 image,

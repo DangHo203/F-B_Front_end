@@ -3,6 +3,8 @@
  */
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 interface CartSummaryProps {
     shipping: string;
@@ -10,6 +12,7 @@ interface CartSummaryProps {
 
 const CartSummary: React.FC<CartSummaryProps> = ({ shipping }) => {
     const { total } = useSelector((state: any) => state.cartSlice);
+    const navigate = useNavigate();
     return (
         <section className="flex flex-col gap-2 px-20 pt-10 pb-11 mx-auto w-full text-red-600 bg-orange-50 max-md:px-5 max-md:mt-10 max-md:max-w-full">
             <h2 className="text-4xl font-bold">CART SUBTOTAL</h2>
@@ -17,18 +20,27 @@ const CartSummary: React.FC<CartSummaryProps> = ({ shipping }) => {
                 <span className="text-lg">Order Subtotal</span>
                 <span className="text-lg">${total.toFixed(2)}</span>
             </div>
-            <hr className="shrink-0 mt-3.5 max-w-full h-0.5 bg-red-600 border-2 border-red-600 border-solid w-[386px]" />
+            <hr className="shrink-0 mt-3.5 max-w-full h-0.5 bg-red-600 border-2 border-red-600 border-solid w-full" />
             <div className="flex gap-5 justify-between mt-4 text-lg">
                 <span>Shipping</span>
                 <span>{shipping}</span>
             </div>
 
-            <hr className="shrink-0 mt-3.5 max-w-full h-0.5 bg-red-600 border-2 border-red-600 border-solid w-[386px]" />
+            <hr className="shrink-0 mt-3.5 max-w-full h-0.5 bg-red-600 border-2 border-red-600 border-solid w-full" />
             <div className="flex gap-5 justify-between mt-4 text-lg whitespace-nowrap">
                 <span className="text-[40px] font-semibold">Total</span>
                 <span>${total.toFixed(2)}</span>
             </div>
-            <button className="self-center px-10 py-5 mt-20 text-lg text-white bg-red-600 hover:bg-red-300 rounded-xl max-md:px-5 max-md:mt-10">
+            <button
+                onClick={() => {
+                    if (total === 0) {
+                        toast.info("Please add items to your cart");
+                        return;
+                    }
+                    navigate("/checkout");
+                }}
+                className="self-center px-10 py-5 mt-20 text-lg text-white bg-red-600 hover:bg-red-300 rounded-xl max-md:px-5 max-md:mt-10"
+            >
                 Proceed To Checkout
             </button>
         </section>

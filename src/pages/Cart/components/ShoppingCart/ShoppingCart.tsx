@@ -10,12 +10,12 @@ const ShoppingCart: React.FC = () => {
     return (
         <main className="flex flex-col">
             <ProductList/>
-            <div className="mt-12 w-full max-md:mt-10 max-md:max-w-full">
-                <div className="flex gap-5 max-md:flex-col">
-                    <div className="flex flex-col items-center justify-center w-6/12 max-md:ml-0 max-md:w-full max-sm:pl-0 sm:pl-16">
+            <div className="mt-12 w-full max-md:mt-10 max-md:max-w-full flex items-center justify-center">
+                <div className="flex gap-5 max-md:flex-col w-full">
+                    {/* <div className="flex flex-col items-center justify-center w-6/12 max-md:ml-0 max-md:w-full max-sm:pl-0 sm:pl-16">
                         <ShippingCalculator />
-                    </div>
-                    <div className="flex flex-col items-center justify-center w-6/12 max-md:ml-0 max-md:w-full  max-sm:pr-0 sm:pr-16">
+                    </div> */}
+                    <div className="flex flex-col items-center justify-center w-full max-md:ml-0 max-md:w-full">
                         <CartSummary
                             shipping="Free Shipping"                 
                         />

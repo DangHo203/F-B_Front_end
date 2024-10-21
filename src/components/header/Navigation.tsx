@@ -83,7 +83,7 @@ const Navigation: React.FC<NavigationProps> = ({ setIsOpenNavMenu }) => {
                                 onClick={() => navigate("/cart")}
                             />
                         </Badge>
-                        <div className="sm:flex hidden gap-2.5 self-stretch my-auto text-[18px]">
+                        <div className="max-md:hidden md:flex gap-2.5 self-stretch my-auto text-[18px]">
                             <div className="flex flex-col justify-start">
                                 <div className="grow self-start">
                                     Delivery Order
