@@ -23,8 +23,6 @@ const ShippingCalculator: React.FC = () => {
         const { name, value } = e.target;
         let formattedValue = value;
 
-        console.log(name, value);
-
         switch (name) {
             case "cardNumber":
                 formattedValue = formatCreditCardNumber(value);

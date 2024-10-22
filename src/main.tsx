@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
@@ -10,17 +9,17 @@ import { Provider } from "react-redux";
 import { rootStore, persistor } from "./redux/config/persist.config";
 import { PersistGate } from "redux-persist/integration/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ScrollToTop from "./utils/router/ScrollToTop.tsx";
 const queyClient = new QueryClient();
 createRoot(document.getElementById("root")!).render(
-    <StrictMode>
-        <QueryClientProvider client={queyClient}>
-            <Provider store={rootStore}>
-                <PersistGate loading={null} persistor={persistor}>
-                    <BrowserRouter>
-                        <App />
-                    </BrowserRouter>
-                </PersistGate>
-            </Provider>
-        </QueryClientProvider>
-    </StrictMode>
+    <QueryClientProvider client={queyClient}>
+        <Provider store={rootStore}>
+            <PersistGate loading={null} persistor={persistor}>
+                <BrowserRouter>
+                    <ScrollToTop />
+                    <App />
+                </BrowserRouter>
+            </PersistGate>
+        </Provider>
+    </QueryClientProvider>
 );

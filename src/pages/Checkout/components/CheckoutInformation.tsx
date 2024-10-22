@@ -20,6 +20,11 @@ const CheckoutInformation: React.FC<CheckoutInformationProps> = ({}) => {
     });
 
     useEffect(() => {
+        window.localStorage.setItem("lng", JSON.stringify(information.longitude));
+        window.localStorage.setItem("lat", JSON.stringify(information.latitude));
+    }, [information]);
+
+    useEffect(() => {
         if (information?.isSaveAddress) {
             window.localStorage.setItem(
                 "address",

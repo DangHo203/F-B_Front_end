@@ -62,6 +62,8 @@ const OrderInformation: React.FC<OrderInformationProps> = ({}) => {
                     address: address.value,
                     message: note.value,
                     payment_method: selectedMethod,
+                    lng: window.localStorage.getItem("lng"),
+                    lat: window.localStorage.getItem("lat"),
                 };
                 switch (selectedMethod) {
                     case "creditCard":
@@ -72,7 +74,6 @@ const OrderInformation: React.FC<OrderInformationProps> = ({}) => {
                         try {
                             setIsLoading(true);
                             const rs = await CreateOrder(data);
-                            console.log(rs);
                             if (rs.status === 201) {
                                 items.map(async (item: any) => {
                                     await AddOrderItem({

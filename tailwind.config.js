@@ -44,6 +44,7 @@ export default {
                 fadeLeft: "fadeLeft 0.5s ease-out",
                 fadeRight: "fadeRight 0.5s ease-out",
                 shake: "shake 1s ease-out infinite",
+                transformZ: "transform transition-transform duration-300 hover:scale-105"
             }
         },
     },

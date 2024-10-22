@@ -7,3 +7,5 @@ export const apiGetProfile = async (_id: number) => {
         params: { _id },
     });
 };
+
+

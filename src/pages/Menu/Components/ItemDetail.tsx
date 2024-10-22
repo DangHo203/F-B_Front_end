@@ -31,7 +31,6 @@ const ItemDetail: React.FC<ItemDetailProps> = ({
                 item_id: id,
             }),
     });
-    console.log(data);
     const handleAddToCart = () => {
         dispatch(
             addItem({

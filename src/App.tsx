@@ -30,7 +30,17 @@ function App() {
             setShowMoveToTop(false);
         }
     };
+    const increaseView = async () => {
+        await fetch("http://localhost:5000/api/chart/view", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    }
     useEffect(() => {
+        
+        increaseView();
         window.addEventListener("scroll", handleScroll);
 
         return () => {

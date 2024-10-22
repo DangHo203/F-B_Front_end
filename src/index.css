@@ -19,6 +19,10 @@ body,html {
     display: none;
 }
 
+.transform_z {
+    @apply transform transition-transform duration-300 hover:scale-105;
+}
+
 .scrollbar-hidden {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */

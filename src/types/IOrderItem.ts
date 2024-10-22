@@ -6,4 +6,5 @@ export interface IOrderItem {
     status: string;
     total: number;
     orderItems: ICartItem[];
+    shipper_id?: number;
 }

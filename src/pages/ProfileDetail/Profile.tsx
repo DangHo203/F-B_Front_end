@@ -41,6 +41,9 @@ const Profile: React.FC = () => {
             });
         }
     }, [data]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className="flex flex-col items-center">

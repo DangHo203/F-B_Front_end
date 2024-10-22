@@ -1,6 +1,9 @@
 import axios from "../../axios";
+import SocketSingleton from "../../socket";
 
 export const CreateOrder = async (order: any) => {
+    const socket = SocketSingleton.getInstance();
+    socket.emit("orderComming");
     return await axios({
         method: "POST",
         url: "/order",
