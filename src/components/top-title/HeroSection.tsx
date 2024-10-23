@@ -18,7 +18,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ title, description }) => {
             />
             <div className="flex relative flex-col max-w-full w-full">
                 <h1 className="self-center text-4xl font-bold">{title}</h1>
-                <p className="mt-1 text-[2vw] px-5" >
+                <p className="mt-1 max-sm:text-[1rem] text-center px-5" >
                     {description}
                 </p>
             </div>

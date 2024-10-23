@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import NavMenu from "./NavMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slice/user.slice";
+import { toast } from "react-toastify";
 interface NavigationProps {
     setIsOpenNavMenu: (value: boolean) => void;
 }
@@ -34,13 +35,13 @@ const links = [
 
 const Navigation: React.FC<NavigationProps> = ({ setIsOpenNavMenu }) => {
     const dispatch = useDispatch();
-
     const { items } = useSelector((state: any) => state.cartSlice);
     const { isLogin, fullName, image } = useSelector(
         (state: any) => state.customerSlice
     );
     const navigate = useNavigate();
     const handleLogout = () => {
+        window.localStorage.removeItem("persist:cart");
         dispatch(logout());
     };
 
@@ -65,7 +66,9 @@ const Navigation: React.FC<NavigationProps> = ({ setIsOpenNavMenu }) => {
                         <div className="sm:flex hidden flex-row h-full w-auto gap-10 items-center whitespace-nowrap text-[18px]">
                             {links.map((link) => (
                                 <div
-                                    onClick={() => navigate(`/${link.url}`)}
+                                    onClick={() => {
+                                        navigate(`/${link.url}`);
+                                    }}
                                     className="self-stretch my-auto hover:text-red-500 cursor-pointer"
                                 >
                                     {link.title}
@@ -112,6 +115,7 @@ const Navigation: React.FC<NavigationProps> = ({ setIsOpenNavMenu }) => {
                                 <div className="flex flex-col justify-center items-center">
                                     <div
                                         onClick={() => {
+                                          
                                             navigate(`/profile`);
                                         }}
                                         className="w-[40px] h-[40px]  flex justify-center items-center"

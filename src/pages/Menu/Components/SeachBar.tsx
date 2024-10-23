@@ -17,8 +17,8 @@ export default function SearchBar() {
 
     return (
         <div className="flex flex-col justify-center items-center w-full h-20 bg-white shadow-md gap-2 py-[100px]">
-            <span className="text-[3vw] font-bold">
-                It’s the food and groceries you Love, delivered
+            <span className="max-sm:text-[1rem] sn:text-[2rem] font-bold text-center">
+                It’s the food and groceries you Love
             </span>
 
             <div className="flex flex-row items-center w-2/3 gap-2">

@@ -19,6 +19,7 @@ const Profile = lazy(() => import("./pages/ProfileDetail/Profile"));
 const Cart = lazy(() => import("./pages/Cart/Cart"));
 const WistList = lazy(() => import("./pages/WishList/Wistlist"));
 const Checkout = lazy(() => import("./pages/Checkout/Checkout"));
+const VnpayReturn = lazy(() => import("./pages/Payment/VnpayReturn"));
 
 function App() {
     const [isOpenNavMenu, setIsOpenNavMenu] = useState(false);
@@ -40,7 +41,7 @@ function App() {
     }
     useEffect(() => {
         
-        increaseView();
+        // increaseView();
         window.addEventListener("scroll", handleScroll);
 
         return () => {
@@ -68,6 +69,7 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/wishlist" element={<WistList />} />
                     <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/vnpay_return" element={<VnpayReturn />} />
                 </Routes>
             </Suspense>
 

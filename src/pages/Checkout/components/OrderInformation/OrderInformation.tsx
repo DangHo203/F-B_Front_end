@@ -5,7 +5,11 @@ import PaymentMethod from "./SelectPaymentMethod";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
-import { AddOrderItem, CreateOrder } from "../../checkout.service";
+import {
+    AddOrderItem,
+    CreateOrder,
+    CreateVNPayLink,
+} from "../../checkout.service";
 import Loading from "../../../../components/loading/Loading";
 
 interface OrderInformationProps {}
@@ -67,8 +71,35 @@ const OrderInformation: React.FC<OrderInformationProps> = ({}) => {
                 };
                 switch (selectedMethod) {
                     case "creditCard":
+                        toast("This payment method is not available now");
                         return;
-                    case "paypal":
+                    case "vnpay":
+                        try {
+                            const config = {
+                                amount:
+                                    items.reduce(
+                                        (total: number, item: any) =>
+                                            total + item.total,
+                                        0
+                                    ) * 24000,
+                                bankCode: "NCB",
+                                language: "en",
+                            };
+                            const rs = await CreateVNPayLink(config);
+                            if (rs) {
+                                window.localStorage.setItem(
+                                    "order",
+                                    JSON.stringify({
+                                        order: data,
+                                        items: items,
+                                    })
+                                );
+                            }
+                            window.location.href = rs.data.data;
+                            console.log(rs.data.data);
+                        } catch (e) {
+                            toast("Error when place order");
+                        }
                         return;
                     case "cod":
                         try {

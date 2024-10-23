@@ -1,4 +1,3 @@
-import { ChangeEvent, useState } from "react";
 import SelectPaymentMethodItem from "./SelectPaymentMethodItem";
 
 const PaymentMethodContants = [
@@ -8,9 +7,9 @@ const PaymentMethodContants = [
         value: "creditCard",
     },
     {
-        image: "https://cdn-icons-png.flaticon.com/512/888/888870.png",
-        text: "PayPal",
-        value: "paypal",
+        image: "https://vnpay.vn/s1/statics.vnpay.vn/2023/6/0oxhzjmxbksr1686814746087.png",
+        text: "VNPay",
+        value: "vnpay",
     },
     {
         image: "https://cdn-icons-png.flaticon.com/512/5578/5578593.png",

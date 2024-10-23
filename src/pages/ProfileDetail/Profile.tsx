@@ -42,6 +42,9 @@ const Profile: React.FC = () => {
         }
     }, [data]);
     useEffect(() => {
+        if (!id){
+            window.location.href = "/auth";
+        }
         window.scrollTo(0, 0);
     }, []);
 

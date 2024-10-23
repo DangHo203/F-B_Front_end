@@ -11,6 +11,7 @@ interface CartSummaryProps {
 }
 
 const CartSummary: React.FC<CartSummaryProps> = ({ shipping }) => {
+    const { id } = useSelector((state: any) => state.customerSlice);
     const { total } = useSelector((state: any) => state.cartSlice);
     const navigate = useNavigate();
     return (
@@ -33,6 +34,10 @@ const CartSummary: React.FC<CartSummaryProps> = ({ shipping }) => {
             </div>
             <button
                 onClick={() => {
+                    if (!id) {
+                        toast.info("Please login to continue");
+                        return;
+                    }
                     if (total === 0) {
                         toast.info("Please add items to your cart");
                         return;

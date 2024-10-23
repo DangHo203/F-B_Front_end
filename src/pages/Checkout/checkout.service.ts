@@ -17,3 +17,11 @@ export const AddOrderItem = async (orderItem: any) => {
         params: orderItem,
     })
 }
+
+export const CreateVNPayLink = async (body: any) => {
+    return await axios({
+        method: "POST",
+        url: "/vnpay/create_payment_url",
+        data: body,
+    })
+}

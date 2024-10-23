@@ -81,7 +81,12 @@ const Register: React.FC<RegisterProps> = () => {
                     }).then(() => {
                         window.location.href = "/auth";
                     });
-                } else if (rs?.status === 409) {
+                
+                }
+                else if (rs?.status === 400) {
+                    toast.error("OTP không chính xác hoặc đã quá hạn, vui lòng nhập lại!");
+                } 
+                else if (rs?.status === 409) {
                     toast.error("Email đã tồn tại");
                 } else if (rs?.status === 500) {
                     toast.error("OTP đã hết hạn");

@@ -6,4 +6,8 @@ export default defineConfig({
   css: {
     postcss: './postcss.config.js',
   },
+  server: {
+    host: 'myapp.local', // Custom domain
+    port: 8080,          // Custom port
+  },
 });
