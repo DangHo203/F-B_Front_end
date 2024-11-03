@@ -39,7 +39,6 @@ export function formatCreditCardNumber(value: string): string {
 
 export function formatCVC(
     value: string,
-    prevValue?: string,
     allValues: { number?: string } = {}
 ): string {
     const clearValue = clearNumber(value);

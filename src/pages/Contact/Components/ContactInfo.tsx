@@ -7,6 +7,7 @@ type ContactInfoProps = {
   icon: string;
   text: string;
   altText: string;
+
 };
 
 const ContactInfo: React.FC<ContactInfoProps> = ({ icon, text, altText }) => (

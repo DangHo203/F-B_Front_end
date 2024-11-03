@@ -20,8 +20,14 @@ const CheckoutInformation: React.FC<CheckoutInformationProps> = ({}) => {
     });
 
     useEffect(() => {
-        window.localStorage.setItem("lng", JSON.stringify(information.longitude));
-        window.localStorage.setItem("lat", JSON.stringify(information.latitude));
+        window.localStorage.setItem(
+            "lng",
+            JSON.stringify(information.longitude)
+        );
+        window.localStorage.setItem(
+            "lat",
+            JSON.stringify(information.latitude)
+        );
     }, [information]);
 
     useEffect(() => {
@@ -63,12 +69,15 @@ const CheckoutInformation: React.FC<CheckoutInformationProps> = ({}) => {
                             value={data?.fullName.toString()}
                         />
                     </div>
-                    <div>
-                        <TextField
-                            title="Phone:"
-                            value={data?.phone.toString()}
-                        />
-                    </div>
+                    {data?.phone && (
+                        <div>
+                            <TextField
+                                title="Phone:"
+                                value={data?.phone.toString()}
+                            />
+                        </div>
+                    )}
+
                     <div>
                         <TextField
                             title="Email:"
@@ -78,15 +87,18 @@ const CheckoutInformation: React.FC<CheckoutInformationProps> = ({}) => {
                     <div>
                         <div className="flex flex-row items-start justify-between">
                             <span className="text-sm font-medium">Note:</span>
-                            <textarea name="noteCheckout" id="noteCheckout" className="border bg-yellow-300 px-2">
-
-                            </textarea>
+                            <textarea
+                                name="noteCheckout"
+                                id="noteCheckout"
+                                className="border bg-yellow-300 px-2"
+                            ></textarea>
                         </div>
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
                             Address
                         </label>
+
                         <SearchBox
                             options={{
                                 proximity: {

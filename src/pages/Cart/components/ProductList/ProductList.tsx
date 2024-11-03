@@ -18,9 +18,14 @@ const ProductList: React.FC<ProductListProps> = ({}) => {
                 <div className="col-span-1 py-2"></div>
             </div>
             <div className="flex flex-col max-sm:gap-5">
+                {
+                    items.length === 0 && (
+                        <div className="text-2xl text-center text-red-600 w-full h-[100px] flex justify-center items-center bg-slate-50">No item here!</div>
+                    )
+                }
                 {items.map(
                     (product: {
-                        id: string;
+                        id: number;
                         title: string;
                         price: number;
                         quantity: number;

@@ -33,7 +33,7 @@ const VnpayReturn: React.FC = () => {
                 confirmButtonColor: "#f87171",
                 position: "top-right",
             }).then(() => {
-                window.location.href = "/cart";
+                window.location.href = "/#/cart";
             });
         } catch (e) {
             toast("Error when place order");
@@ -66,7 +66,7 @@ const VnpayReturn: React.FC = () => {
         } else {
             setPaymentStatus("failed");
             setTimeout(() => {
-                window.location.href = "/cart";
+                window.location.href = "/#/cart";
             }, 3000);
         }
     }, [location.search]);

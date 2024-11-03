@@ -21,7 +21,13 @@ const DetailOrderItem: React.FC<DetailOrderItemProps> = ({
     shipper_id,
     order_id,
 }) => {
-    const [shipper, setShipper] = useState(null);
+    interface Shipper {
+        image: string;
+        fullName: string;
+        phone: string;
+    }
+
+    const [shipper, setShipper] = useState<Shipper | null>(null);
     const socket = SocketSingleton.getInstance();
 
     const handleCancelOrder = async () => {
@@ -47,6 +53,7 @@ const DetailOrderItem: React.FC<DetailOrderItemProps> = ({
                 if (rs?.status === 200) {
                     toast.success("Cancel order success");
                     setIsOpenDetail(false);
+                    socket.connect();
                     socket.emit("orderCancel", order_id);
                     setTimeout(() => {
                         window.location.reload();

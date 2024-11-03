@@ -15,7 +15,7 @@ const FoodMenuColumn: React.FC<FoodMenuColumnProps> = ({ items }) => {
             <div className="flex flex-col w-full max-md:mt-10 max-md:max-w-full">
                 {items.map((item, index) => (
                     <div key={index} className={index > 0 ? "mt-8" : ""}>
-                        <FoodMenuItem {...item} />
+                        <FoodMenuItem {...item}/>
                     </div>
                 ))}
             </div>

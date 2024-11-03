@@ -4,8 +4,6 @@
 import React, { useState } from "react";
 import InputField from "./InputField";
 import Button from "./Button";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import OTPVerification from "../OTPVerfication";
 import Loading from "./Loading";
 import Swal from "sweetalert2";
@@ -22,8 +20,6 @@ interface RegisterProps {
 const Register: React.FC<RegisterProps> = () => {
     const [isRegistered, setIsRegistered] = useState(false);
     const [isSending, setIsSending] = useState(false);
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const [register, setRegister] = useState({
         email: "",

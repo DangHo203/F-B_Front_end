@@ -4,7 +4,7 @@ import "./index.css";
 import "./assets/css/tailwind.css";
 import "./assets/css/animate.css";
 import "./assets/css/swiper-bundle.min.css";
-import { BrowserRouter } from "react-router-dom";
+import {  HashRouter  } from "react-router-dom";
 import { Provider } from "react-redux";
 import { rootStore, persistor } from "./redux/config/persist.config";
 import { PersistGate } from "redux-persist/integration/react";
@@ -15,10 +15,10 @@ createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queyClient}>
         <Provider store={rootStore}>
             <PersistGate loading={null} persistor={persistor}>
-                <BrowserRouter>
+                <HashRouter  >
                     <ScrollToTop />
                     <App />
-                </BrowserRouter>
+                </HashRouter>
             </PersistGate>
         </Provider>
     </QueryClientProvider>

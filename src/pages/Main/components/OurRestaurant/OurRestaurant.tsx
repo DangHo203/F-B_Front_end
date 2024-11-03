@@ -4,7 +4,6 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
 import ImageGrid from "./ImageGrid";
-import Button from "./Button";
 
 interface OurRestaurantProps {
   title: string;

@@ -121,7 +121,7 @@ const OrderInformation: React.FC<OrderInformationProps> = ({}) => {
                                 confirmButtonText: "OK",
                                 confirmButtonColor: "#f87171",
                             }).then(() => {
-                                window.location.href = "/cart";
+                                window.location.href = "/#/cart";                       
                             });
                         } catch (e) {
                             toast("Error when place order");

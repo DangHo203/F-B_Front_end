@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login as reduxLogin } from "../../../redux/slice/user.slice";
 import Loading from "./Loading";
+import Swal from "sweetalert2";
 
 interface LoginProps {
     // Add any props if needed
@@ -32,8 +33,12 @@ const Login: React.FC<LoginProps> = () => {
             setIsSending(false);
             navigate("/");
         }else{
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Email or password is incorrect!",
+            });
             setIsSending(false);
-
         }
     };
 

@@ -17,7 +17,6 @@ const Detail = lazy(() => import("./pages/DetailItem/Detail"));
 const Auth = lazy(() => import("./pages/Auth/Auth"));
 const Profile = lazy(() => import("./pages/ProfileDetail/Profile"));
 const Cart = lazy(() => import("./pages/Cart/Cart"));
-const WistList = lazy(() => import("./pages/WishList/Wistlist"));
 const Checkout = lazy(() => import("./pages/Checkout/Checkout"));
 const VnpayReturn = lazy(() => import("./pages/Payment/VnpayReturn"));
 
@@ -31,14 +30,14 @@ function App() {
             setShowMoveToTop(false);
         }
     };
-    const increaseView = async () => {
-        await fetch("http://localhost:5000/api/chart/view", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-    }
+    // const increaseView = async () => {
+    //     await fetch("http://localhost:5000/api/chart/view", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //     });
+    // }
     useEffect(() => {
         
         // increaseView();
@@ -67,7 +66,6 @@ function App() {
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/cart" element={<Cart />} />
-                    <Route path="/wishlist" element={<WistList />} />
                     <Route path="/checkout" element={<Checkout />} />
                     <Route path="/vnpay_return" element={<VnpayReturn />} />
                 </Routes>

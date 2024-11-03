@@ -7,4 +7,6 @@ export interface IOrderItem {
     total: number;
     orderItems: ICartItem[];
     shipper_id?: number;
+    create_at: string;
+    total_price: number;
 }

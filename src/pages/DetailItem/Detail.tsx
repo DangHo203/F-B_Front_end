@@ -6,7 +6,6 @@ import ItemDetail from "./Components/ItemDetail";
 import FoodMenuSpecial from "./Components/FoodMenuSpecial/FoodMenuSpecial";
 import FoodMenu from "./Components/FoodMenuNormal/FoodMenu";
 import HeroSection from "../../components/top-title/HeroSection";
-import { useSearchParams } from "react-router-dom";
 
 const items = {
     title: "Lorem Ipsum",
@@ -16,8 +15,6 @@ const items = {
 };
 
 const Detail: React.FC = () => {
-    const [params] = useSearchParams();
-    const id = params.get("id");
     return (
         <main className="flex flex-col items-center">
             <HeroSection title={items.title} description=""/>

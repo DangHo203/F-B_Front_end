@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoLogOutOutline } from "react-icons/io5";
 
 import Badge from "@mui/material/Badge";
 import { useNavigate } from "react-router-dom";
-import NavMenu from "./NavMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slice/user.slice";
-import { toast } from "react-toastify";
 interface NavigationProps {
     setIsOpenNavMenu: (value: boolean) => void;
 }
@@ -36,13 +34,14 @@ const links = [
 const Navigation: React.FC<NavigationProps> = ({ setIsOpenNavMenu }) => {
     const dispatch = useDispatch();
     const { items } = useSelector((state: any) => state.cartSlice);
-    const { isLogin, fullName, image } = useSelector(
+    const { isLogin, image } = useSelector(
         (state: any) => state.customerSlice
     );
     const navigate = useNavigate();
     const handleLogout = () => {
         window.localStorage.removeItem("persist:cart");
         dispatch(logout());
+        navigate("/");
     };
 
     return (
@@ -103,12 +102,12 @@ const Navigation: React.FC<NavigationProps> = ({ setIsOpenNavMenu }) => {
                             />
                         </div>
                         {!isLogin && (
-                            <button
+                            <div
                                 onClick={() => navigate("/auth")}
-                                className=" sm:flex hidden self-stretch px-5 py-2 my-auto text-lg text-orange-50 whitespace-nowrap bg-red-600 rounded-xl shadow-sm"
+                                className=" sm:flex hidden cursor-pointer self-stretch px-5 py-2 my-auto text-lg text-orange-50 whitespace-nowrap bg-red-600 rounded-xl shadow-sm   transform transition-transform duration-300 hover:scale-110"
                             >
                                 LOGIN
-                            </button>
+                            </div>
                         )}
                         {isLogin && (
                             <div className="sm:flex hidden gap-2.5 self-stretch my-auto text-[18px]">

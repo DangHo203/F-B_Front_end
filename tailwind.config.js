@@ -11,6 +11,7 @@ export default {
             backgroundColor: {
                 main: "#FFF8EE",
                 secondary: "#FFD6BA",
+          
             },
             fontFamily: { Lexend: ["Lexend Deca", "sans-serif"] },
             keyframes: {

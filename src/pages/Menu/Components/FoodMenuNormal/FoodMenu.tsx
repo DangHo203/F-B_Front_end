@@ -4,64 +4,6 @@
 import React from "react";
 import FoodMenuColumn from "./FoodMenuColumn";
 
-const foodItems = [
-    {
-        title: "Chicken Supreme Pizza",
-        description:
-            "Topped with chicken, onion, capsicum, black olive & Green chilli",
-        price: 100,
-        imageSrc:
-            "https://cdn.builder.io/api/v1/image/assets/TEMP/a4d98fb0ee8a479167fa4b9d80d649b94b750d871d12ef2eb88d82fe840a7434?placeholderIfAbsent=true&apiKey=e0522cabc7bc4885906fcb2658eca109",
-    },
-    {
-        title: "Hamburger Burger with Beef",
-        description:
-            "Topped with chicken, onion, capsicum, black olive & Green chilli",
-        price: 100,
-        imageSrc:
-            "https://cdn.builder.io/api/v1/image/assets/TEMP/d29f8242e80dd8bde5d3affb925155a13287e74744d187688bd2e62000489140?placeholderIfAbsent=true&apiKey=e0522cabc7bc4885906fcb2658eca109",
-    },
-    {
-        title: "Belgium waffles with strawberries",
-        description:
-            "Topped with chicken, onion, capsicum, black olive & Green chilli",
-        price: 100,
-        imageSrc:
-            "https://cdn.builder.io/api/v1/image/assets/TEMP/31a13789c711b8bb8b0768785884966eb29357ccb1a0987f3d04527e95c1e261?placeholderIfAbsent=true&apiKey=e0522cabc7bc4885906fcb2658eca109",
-    },
-    {
-        title: "Chicken skewers",
-        description:
-            "Topped with chicken, onion, capsicum, black olive & Green chilli",
-        price: 100,
-        imageSrc:
-            "https://cdn.builder.io/api/v1/image/assets/TEMP/214b1e25ec24d3ba1bd2ed0845c71e6b6160d5eab552a9da8f158798792f895c?placeholderIfAbsent=true&apiKey=e0522cabc7bc4885906fcb2658eca109",
-    },
-    {
-        title: "Mutton or lamb biriyani",
-        description:
-            "Topped with chicken, onion, capsicum, black olive & Green chilli",
-        price: 100,
-        imageSrc:
-            "https://cdn.builder.io/api/v1/image/assets/TEMP/869d2866af9260ba3a39335f878678946879997c7b0ac8412956528b06f0fa97?placeholderIfAbsent=true&apiKey=e0522cabc7bc4885906fcb2658eca109",
-    },
-    {
-        title: "Delicious food on a white plate",
-        description:
-            "Topped with chicken, onion, capsicum, black olive & Green chilli",
-        price: 100,
-        imageSrc:
-            "https://cdn.builder.io/api/v1/image/assets/TEMP/5a9e761d8209a0cc258215584310a0c706398e27807f8cd9fb9ae09134c8289e?placeholderIfAbsent=true&apiKey=e0522cabc7bc4885906fcb2658eca109",
-    },
-    {
-        title: "Spicy fried tubtim fish salad",
-        description:
-            "Topped with chicken, onion, capsicum, black olive & Green chilli",
-        price: 100,
-        imageSrc:
-            "https://cdn.builder.io/api/v1/image/assets/TEMP/b099f12e2d94dd253e1a7345738559fed443a74b9838e0ec5e7d7e510b640a6c?placeholderIfAbsent=true&apiKey=e0522cabc7bc4885906fcb2658eca109",
-    },
-];
 
 import { IFoodItem } from "../../../../types/IFood";
 

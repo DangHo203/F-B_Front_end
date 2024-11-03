@@ -21,6 +21,7 @@ const OrdersForm: React.FC<OrdersFormProps> = ({}) => {
     });
 
     useEffect(() => {
+        socket.connect(); 
         const handleOrderStatusChanged = (data: any) => {
             console.log("Order status changed:", data);
             queryClient.invalidateQueries({ queryKey: ["orders", id] });

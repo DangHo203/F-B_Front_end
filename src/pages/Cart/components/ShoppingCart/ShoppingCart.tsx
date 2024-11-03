@@ -3,7 +3,6 @@
  */
 import React from "react";
 import ProductList from "../ProductList/ProductList";
-import ShippingCalculator from "../ShippingCalculator/ShippingCalculator";
 import CartSummary from "../CartSummary/CartSummary";
 
 const ShoppingCart: React.FC = () => {

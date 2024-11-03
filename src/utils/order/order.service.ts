@@ -1,4 +1,5 @@
 import axios from "../../axios";
+import SocketSingleton from "../../socket";
 
 export const GetOrderByIdAPI = async (id: number) => {
     return await axios({
@@ -35,6 +36,9 @@ export const getShipperByIdAPI = async (id: number) => {
 };
 
 export const changeStatusOrderAPI = async (params: any) => {
+    const socket = SocketSingleton.getInstance();
+    socket.connect();
+    socket.emit("orderComming");
     return await axios({
         method: "PUT",
         url: "/order/status",

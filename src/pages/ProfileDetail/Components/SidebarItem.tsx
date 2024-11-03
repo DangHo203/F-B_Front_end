@@ -10,7 +10,7 @@ interface SidebarItemProps {
     link: string;
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({setSidebar,id, label, isActive, link }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({setSidebar,id, label, isActive }) => {
     const baseClasses =
         "px-4 py-4 mt-4 text-2xl bg-orange-50 hover:bg-orange-200 border-t border-b border-solid border-y-red-600 text-slate-700 max-md:pr-5";
     const activeClasses =

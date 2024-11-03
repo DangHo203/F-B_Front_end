@@ -3,6 +3,7 @@ import SocketSingleton from "../../socket";
 
 export const CreateOrder = async (order: any) => {
     const socket = SocketSingleton.getInstance();
+    socket.connect();
     socket.emit("orderComming");
     return await axios({
         method: "POST",
